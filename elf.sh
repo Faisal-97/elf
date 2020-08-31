@@ -1,7 +1,6 @@
 #!/bin/bash
 #
-kubectl --token=$TOKEN create namespace=elf
-kubectl --token=$TOKEN apply -f elf.namespace.yaml
+kubectl --token=$TOKEN create -f namespace=elf
 helm repo add elastic https://helm.elastic.co
 helm repo add fluent https://fluent.github.io/helm-charts
 helm repo update
