@@ -31,7 +31,7 @@ spec:
   environment {
     CREDS = credentials('omega_docker_creds')
     DOCKER_NAMESPACE = 'omegaproject1'
-    TOKEN=credentials('a1128c0f-36a9-4149-a8d3-b483c340a8b6')
+    TOKEN=credentials('a6b0dd41-8e48-4b83-9d7f-7eb7a1ca06fa')
   }
   stages { 
       stage("deploy") {
