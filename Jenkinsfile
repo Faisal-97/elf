@@ -41,15 +41,13 @@ spec:
 		     
                      kubectl  --token=$TOKEN apply -f elf.namespace.yaml -n elf
 		     kubectl  --token=$TOKEN apply -f ingress.yaml -n elf
-		     helm --token=$TOKEN repo  add elastic https://helm.elastic.co
-		    helm --token=$TOKEN repo  add fluent https://fluent.github.io/helm-charts
-		    helm --token=$TOKEN repo update
-		    helm --token=$TOKEN install elasticsearch elastic/elasticsearch --version=7.9.0 --namespace=elf
-		    helm --token=$TOKEN install  fluent-bit fluent/fluent-bit --namespace=elf
-		    helm --token=$TOKEN install  kibana elastic/kibana --version=7.9.0 --namespace=elf --set service.type=LoadBalancer
+		     helm  repo add elastic --token=$TOKEN https://helm.elastic.co
+		    helm repo --token=$TOKEN add fluent https://fluent.github.io/helm-charts
+		    helm repo --token=$TOKEN update
+		    helm install elasticsearch --token=$TOKEN elastic/elasticsearch --version=7.9.0 --namespace=elf
+		    helm  install --token=$TOKEN fluent-bit fluent/fluent-bit --namespace=elf
+		    helm install --token=$TOKEN  kibana elastic/kibana --version=7.9.0 --namespace=elf --set service.type=LoadBalancer
 		     kubectl --token=$TOKEN -n elf get all
-		     
-		      
                   '''
               }
           }
