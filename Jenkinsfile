@@ -28,7 +28,6 @@ spec:
           steps {
               container('kubectl') {
                   sh '''
-		      kubectl create -n jenkins clusterrolebinding jenkins-account --clusterrole=cluster-admin --serviceaccount=jenkins:jenkins
 		      kubectl --token=$TOKEN create namespace elf       
 		      '''
               }
