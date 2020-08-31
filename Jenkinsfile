@@ -42,7 +42,6 @@ spec:
           steps {
               container('dnd') {
                   sh '''
-                      docker build --tag $DOCKER_NAMESPACE/$SERVICE_NAME .
 		      helm repo add elastic https://helm.elastic.co
 		      helm repo add fluent https://fluent.github.io/helm-charts
 	       	      helm repo update
