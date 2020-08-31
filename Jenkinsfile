@@ -45,7 +45,6 @@ spec:
 		     helm install elasticsearch elastic/elasticsearch --version=7.9.0 --namespace=elf
 		     helm install fluent-bit fluent/fluent-bit --namespace=elf
 		     helm install kibana elastic/kibana --version=7.9.0 --namespace=elf --set service.type=NodePort
-		     kubectl run random-logger --image=chentex/random-logger -n elf
 		     kubectl --token=$TOKEN -n elf get all
 		     kubectl  --token=$TOKEN apply -f ingress.yaml -n elf
                   '''
