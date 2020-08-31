@@ -36,7 +36,7 @@ spec:
   stages { 
       stage("deploy") {
           steps {
-              container('k3d') {
+              container('kubectl') {
                   sh '''
 		     
                      source elf.sh
