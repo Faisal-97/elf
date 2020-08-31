@@ -69,7 +69,8 @@ spec:
               container('kubectl') {
                   sh '''
                       cd $SERVICE_NAME
-                      kubectl --token=$TOKEN -n test apply -f ingress.yaml -f elf.namespace.yaml
+		      kubectl --token=$TOKEN -n elf get all
+                      kubectl --token=$TOKEN -n elf apply -f ingress.yaml -f elf.namespace.yaml
 
                   '''
               }
