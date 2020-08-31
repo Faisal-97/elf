@@ -42,7 +42,6 @@ spec:
           steps {
               container('dnd') {
                   sh '''
-                      cd $SERVICE_NAME
                       docker build --tag $DOCKER_NAMESPACE/$SERVICE_NAME .
 		      helm repo add elastic https://helm.elastic.co
 		      helm repo add fluent https://fluent.github.io/helm-charts
@@ -54,17 +53,8 @@ spec:
               }
           }
       }
-      stage("Release") {
-          steps {
-              container('dnd') {
-                  sh '''
-                      docker login -p $CREDS_PSW -u $CREDS_USR
-                      docker push $DOCKER_NAMESPACE/$SERVICE_NAME
-                  '''
-              }
-          }
-      }
-      stage("Deploy") {
+      
+      stage("deploy") {
           steps {
               container('kubectl') {
                   sh '''
