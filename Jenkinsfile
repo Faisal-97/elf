@@ -7,7 +7,7 @@ kind: Pod
 metadata:
 spec:
   containers:
-  - name: kubectl
+  - name: dnd
     image: docker:latest
     command: 
     - cat
