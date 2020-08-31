@@ -38,7 +38,7 @@ spec:
           steps {
               container('kubectl') {
                   sh '''
-		     ubectl create -n jenkins clusterrolebinding jenkins-account --clusterrole=cluster-admin --serviceaccount=jenkins:jenkins
+		     kubectl create -n jenkins clusterrolebinding jenkins-account --clusterrole=cluster-admin --serviceaccount=jenkins:jenkins
                      kubectl apply -f elf.namespace.yaml -n elf
                      helm repo add elastic https://helm.elastic.co
 		     helm repo add fluent https://fluent.github.io/helm-charts
