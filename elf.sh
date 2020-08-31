@@ -1,11 +1,12 @@
 #!/bin/bash
 #
-k3d -token=$TOKEN apply -f elf.namespace.yaml
+kubectl create namespace elf
+kubectl -token=$TOKEN apply -f elf.namespace.yaml
 helm repo add elastic https://helm.elastic.co
 helm repo add fluent https://fluent.github.io/helm-charts
 helm repo update
 helm install elasticsearch elastic/elasticsearch --version=7.9.0 --namespace=elf
 helm install fluent-bit fluent/fluent-bit --namespace=elf
 helm install kibana elastic/kibana --version=7.9.0 --namespace=elf --set service.type=NodePort
-k3d -token=$TOKEN run random-logger --image=chentex/random-logger -n elf
-k3d -token=$TOKEN apply -f ingress.yaml -n elf
+kubectl -token=$TOKEN run random-logger --image=chentex/random-logger -n elf
+kubectl -token=$TOKEN apply -f ingress.yaml -n elf
