@@ -41,9 +41,10 @@ spec:
 		     
                      kubectl  --token=$TOKEN apply -f elf.namespace.yaml -n elf
 		     kubectl  --token=$TOKEN apply -f ingress.yaml -n elf
-		     ./elf.sh
-		      sleep 90
+		     sleep 90
 		     kubectl --token=$TOKEN -n elf get all
+		     ./elf.sh
+		      
                   '''
               }
           }
